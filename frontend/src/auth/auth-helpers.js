@@ -6,7 +6,7 @@ function authenticate(token, callback) {
 }
 
 function isAuthenticated() {
-  if (typeof window == "undefined") return false;
+  if (typeof window === "undefined") return false;
 
   if (!localStorage.getItem("token")) return false;
 

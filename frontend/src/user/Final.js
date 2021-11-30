@@ -8,6 +8,7 @@ import homeImage from "../assets/images/homeImage.jpg";
 import { Button } from "@material-ui/core";
 import auth from "../auth/auth-helpers";
 import IdleTimer from "react-idle-timer";
+/* eslint-disable */
 
 const useStyles = makeStyles((theme) => ({
   card: {

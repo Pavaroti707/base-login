@@ -10,7 +10,8 @@ import { makeStyles } from "@material-ui/core";
 import auth from "./../auth/auth-helpers";
 import { Redirect } from "react-router-dom";
 import { signin } from "../auth/api-auth";
-import { list } from "./api-user";
+
+/* eslint-disable */
 
 const useStyles = makeStyles((theme) => ({
   card: {
