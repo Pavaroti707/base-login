@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router";
+import { Route, Navigate } from "react-router";
 import auth from "./auth-helpers";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -9,7 +9,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       auth.isAuthenticated() ? (
         <Component {...props} />
       ) : (
-        <Redirect
+        <Navigate
           to={{ pathname: "/signin", state: { from: props.location } }}
         />
       )

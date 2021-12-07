@@ -2,6 +2,7 @@ import User from "../models/user.model";
 import jwt from "jsonwebtoken";
 import expressJwt from "express-jwt";
 import config from "../config/config";
+import chacedUser from "../../../cache";
 
 const signin = (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -17,15 +18,22 @@ const signin = (req, res) => {
 
     res.cookie("t", token, { expire: new Date() + 9999 });
 
+    chacedUser._id = user._id;
+    chacedUser.userName = user.userName;
+    chacedUser.email = user.email;
+
     return res.status(200).json({
       token,
-      user: { _id: user._id, userName: user.userName, email: user.email },
     });
   });
 };
 
 const signout = (req, res) => {
   res.clearCookie("t");
+
+  chacedUser._id = "";
+  chacedUser.userName = "";
+  chacedUser.email = "";
 
   return res.status(200).json({ message: "Signed Out!" });
 };

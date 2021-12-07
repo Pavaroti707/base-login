@@ -32,4 +32,16 @@ const read = (params, token) => {
     .catch((err) => console.log(err));
 };
 
-export { create, list, read };
+const cache = () => {
+  return fetch(`${baseUrl}/api/users/cache`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .catch((err) => console.log(err));
+};
+
+export { create, list, read, cache };

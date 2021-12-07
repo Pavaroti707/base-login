@@ -8,7 +8,7 @@ import { Typography } from "@material-ui/core";
 import { Icon } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import auth from "./../auth/auth-helpers";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { signin } from "../auth/api-auth";
 
 /* eslint-disable */
@@ -72,7 +72,7 @@ const Signin = (props) => {
   const { redirectToReferrer } = values;
 
   if (redirectToReferrer) {
-    return <Redirect to="/final" />;
+    return <Navigate to="/final" />;
   }
 
   return (

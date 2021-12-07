@@ -1,6 +1,7 @@
 import User from "../models/user.model";
 import _, { join } from "lodash";
 import errorHandler from "../helpers/dbErrorHandler";
+import chacedUser from "../../../cache";
 
 const create = (req, res, next) => {
   const user = new User(req.body);
@@ -38,4 +39,8 @@ const read = (req, res) => {
   res.status(200).json(req.profile);
 };
 
-export default { create, list, userByID, read };
+const getCachedUser = (req, res) => {
+  res.status(200).json(chacedUser);
+};
+
+export default { create, list, userByID, read, getCachedUser };

@@ -8,6 +8,7 @@ import homeImage from "../assets/images/homeImage.jpg";
 import { Button } from "@material-ui/core";
 import auth from "../auth/auth-helpers";
 import IdleTimer from "react-idle-timer";
+import { cache } from "./api-user";
 /* eslint-disable */
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +52,9 @@ export default function Final() {
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem("token"));
 
-    setValues({ userName: token.user.userName, email: token.user.email });
+    cache().then((response) =>
+      setValues({ userName: response.userName, email: response.email })
+    );
   }, []);
 
   const action = (e) => {
