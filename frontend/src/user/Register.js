@@ -92,17 +92,6 @@ export default function Register() {
 
     let tempPassword = user.password.split("");
 
-    for (let i = 0; i < tempPassword.length; i++) {
-      let temp = tempPassword[i].charCodeAt();
-
-      if (temp < 97 || temp > 122) {
-        return setValues({
-          ...values,
-          error: "Password can only contain lower case letters",
-        });
-      }
-    }
-
     if (tempPassword.length < 6) {
       return setValues({
         ...values,

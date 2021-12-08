@@ -37,7 +37,7 @@ export default function Home() {
       </Typography>
       <CardContent>
         <Typography variant="body1" component="p">
-          Welcome to Membership home page
+          Welcome to Base Login/Auth App
         </Typography>
       </CardContent>
       <CardContent>
