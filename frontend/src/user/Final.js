@@ -50,7 +50,7 @@ export default function Final() {
   const idleTimer = useRef(null);
 
   useEffect(() => {
-    let token = JSON.parse(localStorage.getItem("token"));
+    if (!localStorage.getItem("token")) return window.location.assign("/");
 
     cache().then((response) =>
       setValues({ userName: response.userName, email: response.email })

@@ -16,7 +16,7 @@ const signin = (req, res) => {
 
     const token = jwt.sign({ _id: user._id }, config.jwtSecret);
 
-    res.cookie("t", token, { expire: new Date() + 9999 });
+    //*res.cookie("t", token, { expire: new Date() + 9999 });
 
     chacedUser._id = user._id;
     chacedUser.userName = user.userName;
@@ -29,7 +29,7 @@ const signin = (req, res) => {
 };
 
 const signout = (req, res) => {
-  res.clearCookie("t");
+  //res.clearCookie("t");
 
   chacedUser._id = "";
   chacedUser.userName = "";
